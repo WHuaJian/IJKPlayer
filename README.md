@@ -3,27 +3,17 @@
 
 ## 用法
 ```Java
-       //应用横屏播放（pad端）
-              button_1.setOnClickListener(new View.OnClickListener() {
-                  @Override
-                  public void onClick(View v) {
-                      K12IJKPlayer.builder(MainActivity.this)
-                              .setTitle("测试视屏")
-                              .setUrl(mp4)
-                              .playForLandscape();
-                  }
-              });
+        //应用横屏播放（pad端）
+               button_1.setOnClickListener(v -> K12IJKPlayer.builder(MainActivity.this)
+                       .setTitle("测试视屏")
+                       .setUrl(mp4)
+                       .playForLandscape());
 
-       //应用竖屏播放（phone端）
-              button_2.setOnClickListener(new View.OnClickListener() {
-                  @Override
-                  public void onClick(View v) {
-                      K12IJKPlayer.builder(MainActivity.this)
-                              .setTitle("测试视屏")
-                              .setUrl(mp4)
-                              .playForPortrait();
-                  }
-              });
+        //应用竖屏播放（phone端）
+               button_2.setOnClickListener(v -> K12IJKPlayer.builder(MainActivity.this)
+                       .setTitle("测试视屏")
+                       .setUrl(mp4)
+                       .playForPortrait());
 ```
 
 ## 引入方式

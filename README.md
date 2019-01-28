@@ -1,4 +1,6 @@
+## 当前版本
 <a href="https://bintray.com/whj/Maven/K12IJKPlayer/1.0.2/link"><img src="https://api.bintray.com/packages/whj/Maven/K12IJKPlayer/images/download.svg?version=1.0.2"/></a>
+
 ## 用法
 ```Java
        //应用横屏播放（pad端）
@@ -29,7 +31,7 @@
    implementation 'com.whj.k12ijkplayer:K12IJKPlayer:version'
 
 ```
-暂时jCenter还没过审，先在app目录build.gradle添加以下配置，过审之后就可以删掉了
+暂时jCenter还没过审，先在app目录build.gradle添加以下配置，过审之后删不删都行
 ```
    repositories {
        maven { url "https://dl.bintray.com/whj/Maven" }
@@ -42,8 +44,9 @@
     <uses-sdk tools:overrideLibrary="tv.danmaku.ijk.media.player_arm64,tv.danmaku.ijk.media.player_x86_64,cn.jzvd" />
 
 ```
-合并第三方和自己app的AndroidManifest.xml文件的时候忽略tv.danmaku.ijk.media.player_arm64和com.example.ijkplayer_x86_64的最低版本限制
-如果有多个用,分割即可。
+合并第三方和自己app的AndroidManifest.xml文件的时候忽略tv.danmaku.ijk.media.player_arm64和com.example.ijkplayer_x86_64以及cn.jzvd的最低版本限制。
+
+
 
 ## License
 ```

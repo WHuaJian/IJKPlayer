@@ -32,8 +32,8 @@ public class K12IJKPlayerActivity extends AppCompatActivity {
     }
 
     private void ijkPlay(){
-        Jzvd.setMediaInterface(new JZMediaIjkplayer());  //  ijkMediaPlayer
-        Jzvd.NORMAL_ORIENTATION = activityInfo;
+        Jzvd.setMediaInterface(new JZMediaIjkplayer());  //  指定ijkMediaPlayer，软解码
+        Jzvd.NORMAL_ORIENTATION = activityInfo; //指定屏幕方向，否者全屏返回会有问题
         K12JzvdStd myJzvdStd= findViewById(R.id.videoplayer);
         myJzvdStd.setUp( playUrl, playTitle, JzvdStd.SCREEN_WINDOW_NORMAL);
     }

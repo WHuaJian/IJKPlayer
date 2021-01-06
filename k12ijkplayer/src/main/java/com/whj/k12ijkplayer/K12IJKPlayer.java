@@ -16,17 +16,21 @@ public class K12IJKPlayer {
     public static final String KEY_PLAY_URL = "KEY_PLAY_URL";
     public static final String KEY_PLAY_TITLE = "KEY_PLAY_TITLE";
     public static final String KEY_PLAY_SCREEN = "KEY_PLAY_SCREEN";
+    public static final String KEY_AURO_PLAY = "KEY_AURO_PLAY";
+    public static final String KEY_AUTOP_FULLSCREEN = "KEY_AUTOP_FULLSCREEN";
 
     private WeakReference<Activity> activity;
 
     private String url;
     private String title;
+    private boolean isPlay;
+    private boolean isFullScreen;
 
     protected K12IJKPlayer() {
 
     }
 
-    public static Builder builder(Activity activity){
+    public static Builder builder(Activity activity) {
         return new Builder(activity);
     }
 
@@ -39,35 +43,47 @@ public class K12IJKPlayer {
             picker.activity = new WeakReference<>(activity);
         }
 
-        public Builder setUrl(String url){
+        public Builder setUrl(String url) {
             picker.url = url;
             return this;
         }
 
-        public Builder setTitle(String title){
+        public Builder setTitle(String title) {
             picker.title = title;
+            return this;
+        }
+
+        public Builder setAutoPlay(boolean autoPlay){
+            picker.isPlay = autoPlay;
+            return this;
+        }
+
+        public Builder setFullScreen(boolean autoFullScreen){
+            picker.isFullScreen = autoFullScreen;
             return this;
         }
 
         /**
          * 横屏应用播放
          */
-        public void playForLandscape(){
+        public void playForLandscape() {
             play(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
         }
 
         /**
          * 竖屏应用播放
          */
-        public void playForPortrait(){
+        public void playForPortrait() {
             play(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
         }
 
-        private void play(int activityInfo){
-            Intent intent = new Intent(picker.activity.get(),K12IJKPlayerActivity.class);
-            intent.putExtra(KEY_PLAY_URL,picker.url);
-            intent.putExtra(KEY_PLAY_TITLE,picker.title);
-            intent.putExtra(KEY_PLAY_SCREEN,activityInfo);
+        private void play(int activityInfo) {
+            Intent intent = new Intent(picker.activity.get(), K12IJKPlayerActivity.class);
+            intent.putExtra(KEY_PLAY_URL, picker.url);
+            intent.putExtra(KEY_PLAY_TITLE, picker.title);
+            intent.putExtra(KEY_AURO_PLAY, picker.isPlay);
+            intent.putExtra(KEY_AUTOP_FULLSCREEN, picker.isFullScreen);
+            intent.putExtra(KEY_PLAY_SCREEN, activityInfo);
             picker.activity.get().startActivity(intent);
         }
     }

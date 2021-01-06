@@ -22,16 +22,12 @@ android {
     }
 }
 
-repositories {
-    maven { url "https://dl.bintray.com/whj/Maven" }
-}
-
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.1.0'
-//    implementation 'com.whj.k12ijkplayer:K12IJKPlayer:1.0.1'
+    implementation 'com.whj.k12ijkplayer:K12IJKPlayer:1.0.3'
 
-    implementation project(':k12ijkplayer')
+//    implementation project(':k12ijkplayer')
 }
 
 

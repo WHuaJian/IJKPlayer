@@ -9,8 +9,7 @@ import com.whj.k12ijkplayer.K12IJKPlayer;
 
 public class MainActivity extends AppCompatActivity {
 
-    String mp4 = "http://file.kexinedu.net:8004/file/2019/01/20/22040035-ofy6yMGe.mp4";
-    String mp3 = "http://other.web.nf01.sycdn.kuwo.cn/resource/n3/21/82/957599739.mp3";
+    String mp4 = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +24,14 @@ public class MainActivity extends AppCompatActivity {
         button_1.setOnClickListener(v -> K12IJKPlayer.builder(MainActivity.this)
                 .setTitle("测试视屏")
                 .setUrl(mp4)
+                .setAutoPlay(true)
                 .playForLandscape());
 
         //应用竖屏播放（phone端）
         button_2.setOnClickListener(v -> K12IJKPlayer.builder(MainActivity.this)
                 .setTitle("测试视屏")
                 .setUrl(mp4)
+                .setFullScreen(true)
                 .playForPortrait());
     }
 
